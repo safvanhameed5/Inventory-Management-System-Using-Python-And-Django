@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <title>Product Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        h1 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+  <h1>Product List</h1>
+  <table>
+    <tr>
+      <th>ProductID</th>
+      <th>ProductCode</th>
+      <th>ProductName</th>
+      <th>ProductImage</th>
+      <th>CreatedDate</th>
+      <th>UpdatedDate</th>
+      <th>CreatedUser</th>
+      <th>IsFavourite</th>
+      <th>HSNCode</th>
+      <th>TotalStock</th>
+      <th>Edit</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.ProductID }}</td>
+      <td>{{ product.ProductCode }}</td>
+      <td>{{ product.ProductName }}</td>
+      <td>
+        {% if product.ProductImage %}
+          <img src="{{ product.ProductImage.url }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
+        {% else %}
+          No Image
+        {% endif %}
+      </td>
+      <td>{{ product.CreatedDate }}</td>
+      <td>{{ product.UpdatedDate }}</td>
+      <td>{{ product.CreatedUser }}</td>
+      <td>{{ product.IsFavourite }}</td>
+      <td>{{ product.HSNCode }}</td>
+      <td>{{ product.TotalStock }}</td>
+      <td>
+        <a href="{% url 'update' product.ProductID %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+

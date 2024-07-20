@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        h1 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>Update Product</h1>
+    <table>
+        <tr>
+            <th>Product ID (to update)</th>
+            <td><input type="text" name="pro_id"></td>
+        </tr>
+        <tr>
+            <th>Product Code</th>
+            <td><input type="text" name="pro_code"></td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td><input type="text" name="pro_name"></td>
+        </tr>
+        <tr>
+            <th>Product Image</th>
+            <td><input type="file" name="pro_image"></td>
+        </tr>
+        <tr>
+            <th>Updated Date</th>
+            <td><input type="datetime-local" name="pro_updated"></td>
+        </tr>
+        <tr>
+            <th>Favourite</th>
+            <td><input type="checkbox" name="pro_fav"></td>
+        </tr>
+        <tr>
+            <th>HSN Code</th>
+            <td><input type="text" name="pro_hsn"></td>
+        </tr>
+        <tr>
+            <th>Total Stock</th>
+            <td><input type="number" step="0.00000001" name="pro_stock"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="submit" value="Update"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

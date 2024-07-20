@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        h1 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>Create Product</h1>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <td><input type="text" name="proid"></td>
+        </tr>
+        <tr>
+            <th>Product Code</th>
+            <td><input type="text" name="procode"></td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td><input type="text" name="proname"></td>
+        </tr>
+        <tr>
+            <th>Product Image</th>
+            <td><input type="file" name="proimage"></td>
+        </tr>
+        <tr>
+            <th>Created Date</th>
+            <td><input type="datetime-local" name="procreated"></td>
+        </tr>
+        <tr>
+            <th>Updated Date</th>
+            <td><input type="datetime-local" name="proupdated"></td>
+        </tr>
+        <tr>
+            <th>Created User</th>
+            <td><input type="text" name="prouser"></td>
+        </tr>
+        <tr>
+            <th>Favourite</th>
+            <td><input type="checkbox" name="profav"></td>
+        </tr>
+        <tr>
+            <th>HSN Code</th>
+            <td><input type="text" name="prohsn"></td>
+        </tr>
+        <tr>
+            <th>Total Stock</th>
+            <td><input type="number" step="0.00000001" name="prostock"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
